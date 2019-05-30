@@ -12,7 +12,7 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (id, done) {
-    userCollection.findById(id, function (err, user) {
+    UserCollection.findById(id, function (err, user) {
         done(err, user);
     });
 });
@@ -32,7 +32,7 @@ router.get('/', function (req, res, next) {
 });
 
 // if someone favorites a game, adds a profile picture or adds a background image
-router.put("updateUser", (req, res) => {
+router.put("/updateUser", (req, res) => {
     if (req.body.profilePicture || req.body.BackgroundImage) {
         UserCollection.findOneAndUpdate({"_id":req.body._id},
             {$set:{profilePicture:req.body.profilePicture,BackgroundImage:req.body.BackgroundImage}},(errors,results)=>
@@ -52,9 +52,9 @@ passport.use("register", new LocalStrategy
 (
     {passReqToCallback: true},
 
-    (req, user, password, done) => {
+    (req, username, password, done) => {
         console.log("Entered Strategy");
-        BookCollection.findOne({username: user.username}, (err, results) => {
+        UserCollection.findOne({username: username}, (err, results) => {
             if (err) {
                 console.log("error on startup");
                 return done(err);
@@ -67,7 +67,7 @@ passport.use("register", new LocalStrategy
 
                 var newUser = new UserCollection;
 
-                newUser.username = user.username;
+                newUser.username = username;
                 newUser.password = createHash(password);
                 newUser.BackgroundImage = req.body.BackgroundImage;
                 newUser.profilePicture = req.body.profilePicture;
@@ -148,6 +148,23 @@ router.get("/logout", (req, res) => {
     console.log("logging out");
     res.session.username = null;
     res.send(null);
+});
+
+//ToDo build a strategy to take care of verifying before deleteing a user
+router.delete("/removeUser",(req,res)=>
+{
+   UserCollection.findOneAndDelete({username:req.body.username},(errors,results)=>
+   {
+       if(errors)
+       {
+           res.send(errors);
+       }
+       else
+           {
+               console.log("Removed Account");
+               res.send(results);
+           }
+   })
 });
 
 module.exports = router;

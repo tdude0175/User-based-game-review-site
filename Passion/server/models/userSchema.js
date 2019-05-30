@@ -11,7 +11,7 @@ const userSchema = new Schema
         BackgroundImage:{type:String},
         followedGames:[
             {
-                gameReferenceId:{type,String}
+                gameReferenceId:{type:String}
             }
         ]
     }
