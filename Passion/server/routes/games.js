@@ -37,10 +37,24 @@ router.post("/addGame", (req, res) => {
         }
     })
 });
-
+//Update game in any way will allow this to run depending on info fed
+// ToDo add if statements for info that would be updated in the future.
 router.put("/updateGame",(req,res)=>
 {
-    GameCollection.findOneAndUpdate
-})
+    if(req.body.gameArtWork) {
+        GameCollection.findOneAndUpdate({_id:req.body._id},{$set:{gameArtWork: req.body.gameArtWork}},(errors,results)=>
+        {
+            if(errors)
+            {
+                res.send(errors);
+            }
+            else
+                {
+                    console.log("ArtWork Updated");
+                    res.send(results);
+                }
+        })
+    }
+});
 
 module.exports = router;
