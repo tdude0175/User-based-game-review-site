@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+
 var mongoose = require('mongoose');
 var mongoDB = 'mongodb+srv://admin:test4321@thepit-anhst.azure.mongodb.net/MongoTest?retryWrites=true';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
@@ -24,6 +25,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+const expressSession = require('express-session');
+
+app.use(expressSession({
+  secret: "codecrew",
+  name: "cookie_name",
+  // store: "sessionStore", // connect-mongo session store
+  proxy: true,
+  resave: true,
+  saveUninitialized: true
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

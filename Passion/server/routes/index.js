@@ -26,21 +26,25 @@ router.get('/', function(req, res, next) {
 // });
 
 
-router.get("/userDummyData",(req,res)=>
-{
-  let data =
-      [
-        {}
-      ];
-});
+// router.get("/userDummyData",(req,res)=>
+// {
+//   let data =
+//       [
+//         {},
+//         {},
+//         {}
+//       ];
+// });
 
-router.get("/gameDummyData",(req,res)=>
-{
-  let data =
-      [
-        {}
-      ];
-});
+// router.get("/gameDummyData",(req,res)=>
+// {
+//   let data =
+//       [
+//         {}
+//       ];
+// });
+
+
 
 
 module.exports = router;
