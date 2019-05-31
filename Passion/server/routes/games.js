@@ -57,4 +57,36 @@ router.put("/updateGame",(req,res)=>
     }
 });
 
+router.put("/addGameReviewLink",(req,res)=>
+{
+    GameCollection.findOneAndUpdate({_id:req.body._id},{$push:{gameRating:{reviewId:req.body.reviewId}}},(errors,results)=>
+    {
+        if(errors)
+        {
+            console.log("failed to save review to game archive");
+            res.send(errors);
+        }
+        else
+            {
+                console.log("Game reviews id saved to archive");
+                res.send("success!");
+            }
+    })
+});
+
+router.delete("/deleteGame",(req,res)=>
+{
+    GameCollection.findOneAndDelete({_id:req.body._id},(errors,results)=>
+    {
+        if(errors)
+        {
+            res.send(errors);
+        }
+        else
+            {
+                res.send("game Removed");
+            }
+    })
+});
+
 module.exports = router;
