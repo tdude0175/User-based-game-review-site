@@ -28,7 +28,7 @@ export default class GameList extends Component {
              return(
                  <div>
                      <img src={game.gameArtWork} alt="Missing ArtWork"/>
-                     <h3>{game.gameTitle}</h3>
+                     <Link to={"/gamePage"}><h3>{game.gameTitle}</h3></Link>
                      <p>{game.gameInfo.gameReleaseDate}</p>
                      <p>{game.gameInfo.gameDescription}</p>
                  </div>
@@ -37,7 +37,6 @@ export default class GameList extends Component {
         );
         return (
             <div>
-                <h1>Showin games off</h1>
                 {gamesList}
             </div>
         );

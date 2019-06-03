@@ -4,6 +4,7 @@ import './App.css';
 import GameList from "./components/GameList";
 import ReviewGame from "./components/ReviewGame";
 import AddGame from "./components/AddGame";
+import GamePage from "./components/GamePage";
 
 
 function App() {
@@ -14,15 +15,14 @@ function App() {
                 <header>
                     <Link to={"/"}><h1>Games lounge</h1></Link>
                     {/*<Link to={"/YourAccount"}><h3>Account</h3></Link>*/}
-                    <Link to={"/GameReviewPage"}><h3>Review a game</h3></Link>
                     <Link to={"/AddGame"}><h3>Add a game?</h3></Link>
                 </header>
 
                 <Route exact path={"/"} component={() => <GameList/>}/>
-
                 {/*<Route path={"/YourAccount"} component={}/>*/}
                 <Route path={"/GameReviewPage"} component={() => <ReviewGame/>}/>
                 <Route path={"/AddGame"} component={() => <AddGame/>}/>
+                <Route path = "/gamePage" component={()=> <GamePage/>}/>
             </Router>
 
 

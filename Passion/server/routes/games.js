@@ -18,6 +18,19 @@ router.get("/GameList", (req, res) => {
     })
 });
 
+router.post("/getGame/",(req,res)=>
+{
+    GameCollection.findOne({gameTitle:req.params.title},(errors,results)=>
+    {
+        if(errors)
+        {res.send(errors)}
+        else
+            {
+                res.send(results);
+            }
+    })
+});
+
 router.post("/addGame", (req, res) => {
     GameCollection.create({
         gameArtWork: req.body.gameArtWork,
