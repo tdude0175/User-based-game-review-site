@@ -33,7 +33,7 @@ router.post("/addGame", (req, res) => {
             res.send(errors);
         } else {
             console.log("game created");
-            res.send(results);
+            res.send("Game Saved");
         }
     })
 });
