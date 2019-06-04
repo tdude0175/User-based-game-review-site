@@ -25,7 +25,7 @@ export default class ReviewGame extends Component {
                         gameIdReferencePiece: this.props.gameId,
                         title: e.target.title.value,
                         body:e.target.body.value,
-                        creatorIdReferencePiece:"5cf00a65f8bc013186f69e1d",
+                        creatorIdReferencePiece:this.props.userId,
                         gameReviewNumber: e.target.gameRating.value,
                     }
                 )

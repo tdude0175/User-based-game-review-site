@@ -65,12 +65,21 @@ export default class ReviewGame extends Component {
                 </div>
             )
         });
-        return (
-            <div>
-                <h1>{this.state.game.gameTitle}</h1>
-                <Link to={"/AddAReview"}>Write a review?</Link>
-                {reviewList}
-            </div>
-        );
+        if (this.props.isLoggedIn) {
+            return (
+                <div>
+                    <h1>{this.state.game.gameTitle}</h1>
+                    <Link to={"/AddAReview"}>Write a review?</Link>
+                    {reviewList}
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <h1>{this.state.game.gameTitle}</h1>
+                    {reviewList}
+                </div>
+            );
+        }
     }
 }

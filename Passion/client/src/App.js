@@ -6,6 +6,7 @@ import ReviewGame from "./components/ReviewGame";
 import AddGame from "./components/AddGame";
 import GamePage from "./components/GamePage";
 import GameInfo from "./components/GameInfo"
+import UserAccount from "./components/UserAccount";
 
 
 class App extends Component {
@@ -14,8 +15,18 @@ class App extends Component {
         this.state =
             {
                 gameId: "",
+                isLoggedIn: false,
+                username:"",
+                userId:"",
             }
     }
+
+    loggingIn= (name,status,idToFeedUser)=>
+    {
+        this.setState({username:name,isLoggedIn:status,userId:idToFeedUser});
+        console.log(this.state)
+    };
+
 
 
     useGameId = (title) =>
@@ -31,16 +42,16 @@ class App extends Component {
 
                     <header>
                         <Link to={"/"}><h1>Games lounge</h1></Link>
-                        {/*<Link to={"/YourAccount"}><h3>Account</h3></Link>*/}
+                        <Link to={"/YourAccount"}><h3>Account</h3></Link>
                         <Link to={"/AddGame"}><h3>Add a game?</h3></Link>
                     </header>
 
                     <Route exact path={"/"} component={() => <GameList useGameId={this.useGameId}/>}/>
-                    {/*<Route path={"/YourAccount"} component={}/>*/}
+                    <Route path={"/YourAccount"} component={()=><UserAccount loggingIn={this.loggingIn} isLoggedIn={this.state.isLoggedIn} username={this.state.username}/>}/>
                     <Route path={"/GameReviewPage"} component={() => <ReviewGame/>}/>
                     <Route path={"/AddGame"} component={() => <AddGame/>}/>
-                    <Route path={"/GameInfo"} component={()=> <GameInfo _id={this.state.gameId}/>}/>
-                    <Route path={"/AddAReview"} component={()=><ReviewGame gameId={this.state.gameId}/>}/>
+                    <Route path={"/GameInfo"} component={()=> <GameInfo isLoggedIn={this.state.isLoggedIn} _id={this.state.gameId}/>}/>
+                    <Route path={"/AddAReview"} component={()=><ReviewGame userId={this.state.userId} isLoggedIn={this.state.isLoggedIn} gameId={this.state.gameId}/>}/>
                 </Router>
 
 

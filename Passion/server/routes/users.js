@@ -128,7 +128,7 @@ passport.use(new LocalStrategy(
             console.log(user);
             // null is here because there is not an error
             // user is the results of the findOne function
-            return done(null, user, {user: user.username});
+            return done(null, user, {user: user.username,_id:user._id});
         });
     }
 ));
@@ -136,7 +136,7 @@ passport.use(new LocalStrategy(
 router.post("/login", passport.authenticate("local", {failureRedirect: "/users/verificationFailure"}), (req, res) => {
         req.session.username = req.body.username;
         console.log("trying to set cookie data");
-        res.send(req.session);
+        res.send(req.user._id);
     }
 );
 
@@ -150,7 +150,7 @@ router.get("/logout", (req, res) => {
     res.send(null);
 });
 
-//ToDo build a strategy to take care of verifying before deleteing a user
+//ToDo build a strategy to take care of verifying before deleting a user
 router.delete("/removeUser",(req,res)=>
 {
    UserCollection.findOneAndDelete({username:req.body.username},(errors,results)=>
