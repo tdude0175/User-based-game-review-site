@@ -20,7 +20,7 @@ router.get("/GameList", (req, res) => {
 
 router.post("/getGame/",(req,res)=>
 {
-    GameCollection.findOne({gameTitle:req.params.title},(errors,results)=>
+    GameCollection.findOne({_id:req.body._id},(errors,results)=>
     {
         if(errors)
         {res.send(errors)}

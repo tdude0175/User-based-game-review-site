@@ -13,10 +13,19 @@ router.get("/reviews",(req,res)=>
 //don't need to fill out each individuial piece since info can be added late {and will be}
 router.post("/addReview",(req,res)=>
 {
-    ReviewCollection.create(req.body,(errors,results)=>
+    console.log(req.body);
+    console.log("Made it through");
+    ReviewCollection.create({
+        gameIdReferencePiece: req.body.gameIdReferencePiece,
+        title: req.body.title,
+        body:req.body.body,
+        creatorIdReferencePiece:req.body.creatorIdReferencePiece,
+        gameReviewNumber: req.body.gameReviewNumber,
+    },(errors,results)=>
     {
         if(errors)
         {
+            console.log(errors);
             res.send(errors);
         }
         else

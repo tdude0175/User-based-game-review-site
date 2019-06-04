@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
+import GamePage from "./GamePage";
 
 export default class GameList extends Component {
 
@@ -26,18 +27,15 @@ export default class GameList extends Component {
         let gamesList = this.state.games.map((game)=>
             {
              return(
-                 <div>
-                     <img src={game.gameArtWork} alt="Missing ArtWork"/>
-                     <Link to={"/gamePage"}><h3>{game.gameTitle}</h3></Link>
-                     <p>{game.gameInfo.gameReleaseDate}</p>
-                     <p>{game.gameInfo.gameDescription}</p>
+                 <div key={game._id}>
+                     <GamePage game={game} useGameId={this.props.useGameId}/>
                  </div>
              )
             }
         );
         return (
             <div>
-                {gamesList}
+               {gamesList}
             </div>
         );
     }
