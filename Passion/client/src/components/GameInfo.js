@@ -6,17 +6,18 @@ export default class ReviewGame extends Component {
         super(props);
         this.state =
             {
-                game: {},
-                reviews: []
+                game: {gameInfo:{}},
+                reviews: [],
+                gameInfo:{}
             }
     };
 
-    componentDidMount() {
-        this.gatherGameInfo();
+    componentDidMount=()=> {
+        this.gatherGame();
         this.getReviews();
-    }
+    };
 
-    gatherGameInfo = () => {
+    gatherGame = () => {
 
         console.log("getting the game");
         fetch("/games/getGame",
@@ -33,8 +34,10 @@ export default class ReviewGame extends Component {
                 )
             })
             .then(data => data.json())
-            .then(transferableData => this.setState({game: transferableData}))
+            .then(transferableData => this.setState({game:transferableData}))
     };
+
+
 
     getReviews = () => {
         console.log("getting reviews");
@@ -56,27 +59,42 @@ export default class ReviewGame extends Component {
     };
 
     render() {
+        console.log(this.state.gameInfo);
         let reviewList = this.state.reviews.map((review) => {
             return (
-                <div key={review._id}>
+                <div className={"ReviewDisplay"} key={review._id}>
                     <h4>{review.title}</h4>
                     <p>{review.body}</p>
                     {review.gameReviewNumber}
                 </div>
             )
         });
+
         if (this.props.isLoggedIn) {
-            return (
-                <div>
-                    <h1>{this.state.game.gameTitle}</h1>
+            return (<div className={"singleGamePage"}>
+                    <img className={"gameArtwork"} src={this.state.game.gameArtWork} alt="Missing ArkWork"/>
+                    <h1 className={"gameInfoTitle"}>{this.state.game.gameTitle}</h1>
+                    <div className={"displayGameInfo"}>
+                        <p>Release Date: {this.state.game.gameInfo.gameReleaseDate}</p>
+                        <p>Consoles: {this.state.game.gameInfo.gameConsoles}</p>
+                        <p>Developers: {this.state.game.gameInfo.gameCreators}</p>
+                        <p>{this.state.game.gameInfo.gameDescription}</p>
+                    </div>
                     <Link to={"/AddAReview"}>Write a review?</Link>
                     {reviewList}
                 </div>
             );
         } else {
             return (
-                <div>
-                    <h1>{this.state.game.gameTitle}</h1>
+                <div className={"singleGamePage"}>
+                    <img className={"gameArtwork"} src={this.state.game.gameArtWork} alt="Missing ArkWork"/>
+                    <h1 className={"gameInfoTitle"}>{this.state.game.gameTitle}</h1>
+                    <div className={"displayGameInfo"}>
+                        <p>Release Date: {this.state.game.gameInfo.gameReleaseDate}</p>
+                        <p>Consoles: {this.state.game.gameInfo.gameConsoles}</p>
+                        <p>Developers: {this.state.game.gameInfo.gameCreators}</p>
+                        <p>{this.state.game.gameInfo.gameDescription}</p>
+                    </div>
                     {reviewList}
                 </div>
             );

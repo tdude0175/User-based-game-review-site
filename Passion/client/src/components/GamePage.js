@@ -16,12 +16,13 @@ export default class ReviewGame extends Component {
     };
 
     render() {
+
         return (
-            <div>
-                <img src={this.props.game.gameArtWork} alt="Missing Picture"/>
+            <div className={"GameCard"}>
+                <img className={"sampleArt"} src={this.props.game.gameArtWork} alt="Missing Picture"/>
                 <Link to={"/gameInfo"} onClick={this.sendId}><h3>{this.props.game.gameTitle}</h3></Link>
-                {this.props.game.gameInfo.gameReleaseDate}
-                {this.props.game.gameInfo.gameDescription.substring(0,25)}
+                <p>{this.props.game.gameInfo.gameReleaseDate}</p>
+                <p>{this.props.game.gameInfo.gameDescription.substring(0,25)}</p>
             </div>
         );
     }

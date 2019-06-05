@@ -1,11 +1,36 @@
 import React, {Component} from "react"
-import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 
 export default class ReviewGame extends Component {
     constructor(props) {
         super(props);
+        this.state=
+            {
+                game:{gameInfo:{}},
+            }
+    }
+    componentDidMount() {
+        this.gatherGame();
     }
 
+    gatherGame = () => {
+
+        console.log("getting the game");
+        fetch("/games/getGame",
+            {
+                method: "POST",
+                headers:
+                    {
+
+                        "Accept": "application/json",
+                        "Content-type": "application/json"
+                    },
+                body: JSON.stringify(
+                    {_id: this.props.gameId}
+                )
+            })
+            .then(data => data.json())
+            .then(transferableData => this.setState({game:transferableData}))
+    };
     saveReview = (e)=>
     {
         console.log(this.props.gameId);
@@ -34,8 +59,16 @@ export default class ReviewGame extends Component {
 
     render() {
         return(
-            <div>
-                <form onSubmit={this.saveReview}>
+            <div className={"ReviewGamePage"}>
+                <img className={"reviewGameArtwork"} src={this.state.game.gameArtWork} alt="Missing Picture"/>
+                <div className={"reviewGameInfo"}>
+                    <h2>{this.state.game.gameTitle}</h2>
+                    <p>Release Date: {this.state.game.gameInfo.gameReleaseDate}</p>
+                    <p> Consoles: {this.state.game.gameInfo.gameConsoles}</p>
+                    <p> Developers: {this.state.game.gameInfo.gameCreators}</p>
+                    <p>{this.state.game.gameInfo.gameDescription}</p>
+                </div>
+                <form className={"ReviewForm"} onSubmit={this.saveReview}>
                     <p><label htmlFor={'title'}>Title</label>
                         <input name={'title'} id={'title'} type="text"/>
                     </p>
@@ -47,7 +80,6 @@ export default class ReviewGame extends Component {
                     </p>
                     <p><button>Submit</button></p>
                 </form>
-
             </div>
         )
     }

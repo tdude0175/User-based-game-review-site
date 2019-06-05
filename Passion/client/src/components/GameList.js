@@ -1,5 +1,4 @@
 import React, {Component} from "react"
-import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import GamePage from "./GamePage";
 
 export default class GameList extends Component {
@@ -12,9 +11,9 @@ export default class GameList extends Component {
             }
 
     }
-    componentDidMount() {
+    componentDidMount=()=> {
         this.getGamesToDisplay();
-    }
+    };
 
     getGamesToDisplay = () =>
     {
@@ -34,7 +33,7 @@ export default class GameList extends Component {
             }
         );
         return (
-            <div>
+            <div className={"GameDisplay"}>
                {gamesList}
             </div>
         );

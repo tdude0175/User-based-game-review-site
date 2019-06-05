@@ -1,2 +1,98 @@
 .App {
 }
+a{
+    text-decoration: none;
+}
+.NavBar
+{
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(4,1fr);
+    background: #150578;
+    margin-bottom: 5%;
+}
+.NavBar a{
+    color: lightseagreen;
+}
+.NavBar .navPadding
+{
+    padding-top: 2.4%;
+}
+.GameDisplay
+{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.GameCard
+{
+    margin: 1%;
+    background: lightcyan;
+}
+
+.sampleArt
+{
+    width: 60%;
+}
+
+.ReviewDisplay
+{
+    background: lightskyblue;
+    padding: 1%;
+    margin: 1%;
+    width: 45%;
+}
+
+.singleGamePage
+{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    grid-template-rows: repeat(6,1fr);
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.gameArtwork
+{
+    grid-column: 1;
+    grid-row: 1/4;
+    width: 80%;
+}
+.gameInfoTitle
+{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.displayGameInfo
+{
+    grid-row: 4;
+    grid-column: 1;
+}
+
+.ReviewGamePage
+{
+    display: grid;
+    grid-template-columns: 10% repeat(7,1fr) 10% ;
+    grid-template-rows: repeat(2,1fr);
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.ReviewForm
+{
+    grid-row: 1;
+    grid-column: 6/10;
+}
+
+.reviewGameArtwork
+{
+    grid-row: 1;
+    grid-column:1/4 ;
+}
+
+.reviewGameInfo
+{
+    grid-row:2;
+    grid-column: 1/6;
+}

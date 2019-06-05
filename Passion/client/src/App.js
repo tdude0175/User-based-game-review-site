@@ -24,7 +24,6 @@ class App extends Component {
     loggingIn= (name,status,idToFeedUser)=>
     {
         this.setState({username:name,isLoggedIn:status,userId:idToFeedUser});
-        console.log(this.state)
     };
 
 
@@ -40,10 +39,10 @@ class App extends Component {
             <div className="App">
                 <Router>
 
-                    <header>
+                    <header className={"NavBar"}>
                         <Link to={"/"}><h1>Games lounge</h1></Link>
-                        <Link to={"/YourAccount"}><h3>Account</h3></Link>
-                        <Link to={"/AddGame"}><h3>Add a game?</h3></Link>
+                        <Link className={"navPadding"} to={"/YourAccount"}><h3>Account</h3></Link>
+                        <Link className={"navPadding"} to={"/AddGame"}><h3>Add a game?</h3></Link>
                     </header>
 
                     <Route exact path={"/"} component={() => <GameList useGameId={this.useGameId}/>}/>
