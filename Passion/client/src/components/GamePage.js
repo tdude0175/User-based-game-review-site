@@ -34,7 +34,7 @@ export default class ReviewGame extends Component {
     render() {
         let formattedDate = this.formatDate(this.props.game.gameInfo.gameReleaseDate);
         return (
-            <div className={"GameCard"}>
+            <div className={"gameSample"}>
                 <img className={"sampleArt"} src={this.props.game.gameArtWork} alt=""/>
                 <Link to={"/gameInfo"} onClick={this.sendId}><h3>{this.props.game.gameTitle}</h3></Link>
                 {formattedDate}

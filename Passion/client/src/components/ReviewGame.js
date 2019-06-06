@@ -1,11 +1,12 @@
 import React, {Component} from "react"
-
+import {Redirect} from "react-router-dom";
 export default class ReviewGame extends Component {
     constructor(props) {
         super(props);
         this.state =
             {
                 game: {gameInfo: {gameReleaseDate:""}},
+                redirectstate: false
             }
     }
 
@@ -55,6 +56,7 @@ export default class ReviewGame extends Component {
                     }
                 )
             })
+            .then(this.setState({redirectstate:true}))
 
     };
 
@@ -75,6 +77,10 @@ export default class ReviewGame extends Component {
     };
 
     render() {
+        if(this.state.redirectstate)
+        {
+            return(<Redirect to={"/GameInfo"}/>)
+        }
         let formattedDate = this.formatDate(this.state.game.gameInfo.gameReleaseDate);
         return (
             <div className={"ReviewGamePage"}>

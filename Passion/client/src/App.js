@@ -26,6 +26,11 @@ class App extends Component {
     };
 
 
+    logOut = () =>
+    {
+        fetch("/users/logout")
+            .then(this.loggingIn("",false,""))
+    };
 
     useGameId = (title) =>
     {
@@ -43,6 +48,10 @@ class App extends Component {
                             <Link to={"/"}><h1>Games lounge</h1></Link>
                             {/*<Link className={"navPadding"} to={"/YourAccount"}><h3>Account</h3></Link>*/}
                             <Link className={"navPadding"} to={"/AddGame"}><h3>Add a game?</h3></Link>
+                            <div>
+                            <h3>Welcome {this.state.username}</h3>
+                                <button onClick={this.logOut}>LogOut</button>
+                            </div>
                         </header>
 
                         <Route exact path={"/"} component={() => <GameList useGameId={this.useGameId}/>}/>

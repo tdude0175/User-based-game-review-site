@@ -80,20 +80,24 @@ export default class UserPage extends Component {
             return (
                 <div>
                     <h1>welcome {this.props.username}</h1>
-                    <button>LogOut</button>
                 </div>
             );
         } else {
             return (
                 <div>
-                    <h1>Please log in</h1>
+
                     <form onSubmit={this.logPersonIn}>
+                        <h1>Please log in</h1>
                         <p>
                             <label htmlFor={"username"}>Username:</label>
+                        </p>
+                        <p>
                             <input name={"username"} id={"username"} type="text" maxLength={250}/>
                         </p>
                         <p>
                             <label htmlFor={"password"}>Password:</label>
+                        </p>
+                        <p>
                             <input name={"password"} id={"password"} type="password" maxLength={500}/>
                         </p>
                         <button>Submit</button>

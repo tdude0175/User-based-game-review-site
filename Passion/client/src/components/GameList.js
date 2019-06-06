@@ -26,7 +26,7 @@ export default class GameList extends Component {
         let gamesList = this.state.games.map((game)=>
             {
              return(
-                 <div key={game._id}>
+                 <div className={"GameCard"} key={game._id}>
                      <GamePage game={game} useGameId={this.props.useGameId}/>
                  </div>
              )
