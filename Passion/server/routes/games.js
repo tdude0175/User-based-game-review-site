@@ -68,6 +68,22 @@ router.put("/updateGame",(req,res)=>
                 }
         })
     }
+    if(req.body.gameDescription)
+    {
+        console.log(req.body.gameDescription);
+        GameCollection.findOneAndUpdate({_id:req.body._id},{$set:{gameDescription: req.body.gameDescription}},(errors,results)=>
+        {
+            if(errors)
+            {
+                res.send(errors);
+            }
+            else
+            {
+                console.log("Description Updated");
+                res.send(results);
+            }
+        })
+    }
 });
 
 router.put("/addGameReviewLink",(req,res)=>

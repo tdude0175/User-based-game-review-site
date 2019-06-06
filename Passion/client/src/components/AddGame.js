@@ -38,22 +38,22 @@ export default class AddGame extends Component {
         return (
             <div>
                 <form onSubmit={this.addGameToDatabase}>
-                    <p><label htmlFor={"gameArtWork"}>ArtWork</label>
+                    <p><label htmlFor={"gameArtWork"}>ArtWork: </label>
                         <input name={"gameArtWork"} id={"gameArtWork"} type="text"/>
                     </p>
-                    <p><label htmlFor={"gameTitle"}>Title</label>
+                    <p><label htmlFor={"gameTitle"}>Title: </label>
                         <input name={"gameTitle"} id={"gameTitle"} type="text"/>
                     </p>
-                    <p><label htmlFor={"gameReleaseDate"}>Release Date</label>
+                    <p><label htmlFor={"gameReleaseDate"}>Release Date: </label>
                         <input name={"gameReleaseDate"} id={"gameReleaseDate"} type="text"/>
                     </p>
-                    <p><label htmlFor={"gameConsole"}>Primary Console</label>
+                    <p><label htmlFor={"gameConsole"}>Primary Console: </label>
                         <input name={"gameConsole"} id={"gameConsole"} type="text"/>
                     </p>
-                    <p><label htmlFor={"gameCreator"}>Creator</label>
+                    <p><label htmlFor={"gameCreator"}>Creator: </label>
                         <input name={"gameCreator"} id={"gameCreator"} type="text"/>
                     </p>
-                    <p><label htmlFor={"gameDescription"}>Description</label>
+                    <p><label htmlFor={"gameDescription"}>Description: </label>
                         <input name={"gameDescription"} id={"gameDescription"} type="text"/>
                     </p>
                     <p>

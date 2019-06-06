@@ -1,8 +1,15 @@
-.App {
-    /*font-family: ;*/
+@import url('https://fonts.googleapis.com/css?family=Gugi|Rajdhani|Stalinist+One&display=swap');
+body {
+    background: #97C8EB;
+}
+.App
+{
+    height: 100%;
+    background: #97C8EB;
 }
 a{
     text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
 }
 .NavBar
 {
@@ -45,11 +52,10 @@ a{
 
 .ReviewDisplay
 {
-    background: lightskyblue;
+    background: #53B3CB;
     padding: 1%;
-    margin: 1%;
     width: 90%;
-    height: 90%;
+    margin-bottom: 1%;
     grid-column: 2;
 }
 
