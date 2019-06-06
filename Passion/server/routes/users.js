@@ -65,7 +65,7 @@ passport.use("register", new LocalStrategy
             } else {
                 console.log("Made it Through strategy");
 
-                var newUser = new UserCollection;
+                let newUser = new UserCollection;
 
                 newUser.username = username;
                 newUser.password = createHash(password);

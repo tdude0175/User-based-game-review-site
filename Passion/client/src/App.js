@@ -4,7 +4,6 @@ import './App.css';
 import GameList from "./components/GameList";
 import ReviewGame from "./components/ReviewGame";
 import AddGame from "./components/AddGame";
-import GamePage from "./components/GamePage";
 import GameInfo from "./components/GameInfo"
 import UserAccount from "./components/UserAccount";
 
@@ -80,7 +79,7 @@ class App extends Component {
                         <Route path={"/GameReviewPage"} component={() => <ReviewGame/>}/>
                         <Route path={"/AddGame"} component={() => <AddGame/>}/>
                         <Route path={"/GameInfo"} component={() => <GameInfo isLoggedIn={this.state.isLoggedIn}
-                                                                             _id={this.state.gameId}/>}/>
+                                                                             _id={this.state.gameId} userId={this.state.userId}/>}/>
                         <Route path={"/AddAReview"} component={() => <ReviewGame userId={this.state.userId}
                                                                                  isLoggedIn={this.state.isLoggedIn}
                                                                                  gameId={this.state.gameId}/>}/>

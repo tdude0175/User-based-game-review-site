@@ -24,13 +24,13 @@ a{
     text-align: center;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-
+    grid-gap: 0.5%;
+    margin: 1%;
 }
 .GameCard
 {
     /*padding-top: 2%;*/
     /*padding-bottom: 5%;*/
-    margin: 1%;
     background: lightcyan;
     height: 100%;
 }
@@ -48,7 +48,8 @@ a{
     background: lightskyblue;
     padding: 1%;
     margin: 1%;
-    width: 45%;
+    width: 90%;
+    height: 90%;
     grid-column: 2;
 }
 
@@ -56,16 +57,17 @@ a{
 {
     display: grid;
     grid-template-columns: repeat(2,50%);
-    grid-template-rows: repeat(4,1fr);
+    grid-template-rows: repeat(3,1fr);
     margin-left: 2%;
     margin-right: 2%;
+
 }
 
 .gameArtwork
 {
     grid-column: 1;
-    grid-row: 1/4;
-    width: 85%;
+    grid-row: 1/3;
+    width: 65%;
     height: 70%;
 }
 .gameInfoTitle
@@ -76,14 +78,14 @@ a{
 
 .displayGameInfo
 {
-    grid-row: 4;
+    grid-row: 3;
     grid-column: 1;
 }
 
 .ReviewGamePage
 {
     display: grid;
-    grid-template-columns: 10% repeat(7,1fr) 10% ;
+    grid-template-columns: repeat(2,50%);
     grid-template-rows: repeat(2,1fr);
     margin-left: 2%;
     margin-right: 2%;
@@ -92,17 +94,26 @@ a{
 .ReviewForm
 {
     grid-row: 1;
-    grid-column: 6/10;
+    grid-column: 2;
 }
 
 .reviewGameArtwork
 {
-    grid-row: 1;
-    grid-column:1/4 ;
+    grid-column: 1;
+    grid-row: 1/3;
+    width: 65%;
+    height: 40%;
 }
 
 .reviewGameInfo
 {
-    grid-row:2;
-    grid-column: 1/6;
+    padding-top: 4%;
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.reviewGameTitle
+{
+    grid-column: 2;
+    grid-row: 1;
 }
