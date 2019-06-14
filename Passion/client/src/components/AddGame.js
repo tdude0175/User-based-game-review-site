@@ -39,7 +39,7 @@ export default class AddGame extends Component {
     render() {
         if(this.state.redirectstate)
         {
-            return(<Redirect to={"/"}/>)
+            return(<Redirect to={"/"} redirect={true}/>)
         }
         return (
             <div>

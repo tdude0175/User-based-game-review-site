@@ -54,7 +54,7 @@ class App extends Component {
                             </div>
                         </header>
 
-                        <Route exact path={"/"} component={() => <GameList useGameId={this.useGameId}/>}/>
+                        <Route exact path={"/"} component={() => <GameList redirect={this.props.redirect} useGameId={this.useGameId}/>}/>
                         <Route path={"/YourAccount"} component={() => <UserAccount loggingIn={this.loggingIn}
                                                                                    isLoggedIn={this.state.isLoggedIn}
                                                                                    username={this.state.username}/>}/>
@@ -93,8 +93,6 @@ class App extends Component {
                                                                                  isLoggedIn={this.state.isLoggedIn}
                                                                                  gameId={this.state.gameId}/>}/>
                     </Router>
-
-
                 </div>
             )
         }
