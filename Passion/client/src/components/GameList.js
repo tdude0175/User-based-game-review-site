@@ -23,6 +23,10 @@ export default class GameList extends Component {
             .then(dataMadePreety => this.setState({games:dataMadePreety}))
     };
     render() {
+        if(this.props.redirect === true)
+        {
+            this.getGamesToDisplay();
+        }
         let gamesList = this.state.games.map((game)=>
             {
              return(
