@@ -8,7 +8,9 @@ import GameInfo from "./components/GameInfo"
 import UserAccount from "./components/UserAccount";
 
 
+
 class App extends Component {
+
     constructor(props) {
         super(props);
         this.state =
@@ -42,11 +44,12 @@ class App extends Component {
         if(this.state.isLoggedIn) {
             return (
                 <div className="App">
+
                     <Router>
 
                         <header className={"NavBar"}>
                             <Link to={"/"}><h1>Games lounge</h1></Link>
-                            {/*<Link className={"navPadding"} to={"/YourAccount"}><h3>Account</h3></Link>*/}
+                            <Link className={"navPadding"} to={"/YourAccount"}><h3>Account</h3></Link>
                             <Link className={"navPadding"} to={"/AddGame"}><h3>Add a game?</h3></Link>
                             <div>
                             <h3>Welcome {this.state.username}</h3>
@@ -74,7 +77,6 @@ class App extends Component {
             return (
                 <div className="App">
                     <Router>
-
                         <header className={"NavBar"}>
                             <Link to={"/"}><h1>Games lounge</h1></Link>
                             <Link className={"navPadding"} to={"/YourAccount"}><h3>Account</h3></Link>
