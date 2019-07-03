@@ -30,11 +30,8 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
-<<<<<<< HEAD
-  }
-=======
+    ] }
   },
   "proxy": "http://localhost:3004"
->>>>>>> dde1d3c1cedd9a193969fa513801b1c93c206bc4
+  }
 }
