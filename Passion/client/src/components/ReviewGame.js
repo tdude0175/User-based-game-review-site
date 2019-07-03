@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import {Redirect} from "react-router-dom";
+import Tooltip from 'react-tooltip-lite';
 export default class ReviewGame extends Component {
     constructor(props) {
         super(props);
@@ -102,8 +103,10 @@ export default class ReviewGame extends Component {
                     <p>
                         <textarea name={"body"} id={"body"} placeholder={"What did you think?"}rows={5} cols={50} maxLength={5000}/>
                     </p>
-                    <p><label htmlFor={"gameRating"}>Your Rating</label>
-                        <input name={"gameRating"} id={"gameRating"} type="number" min={0} max={5}/>
+                    <p><label htmlFor={"gameRating"}>Your Rating:</label>
+                        <Tooltip content={" from 0-5"}>
+                        <input name={"gameRating"} id={"gameRating"}  type="number" min={0} max={5}/>
+                        </Tooltip>
                     </p>
                     <p>
                         <button>Submit</button>

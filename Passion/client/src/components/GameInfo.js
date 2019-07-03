@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import {BrowserRouter as Router, Link, Route} from "react-router-dom";
+import {BrowserRouter as  Link} from "react-router-dom";
 
 export default class ReviewGame extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ export default class ReviewGame extends Component {
 
     gatherGame = () => {
 
-        console.log("getting the game");
+        // console.log("getting the game");
         fetch("/games/getGame",
             {
                 method: "POST",
@@ -54,7 +54,7 @@ export default class ReviewGame extends Component {
     };
 
     getReviews = () => {
-        console.log("getting reviews");
+        // console.log("getting reviews");
         fetch("/reviews/listReviews",
             {
                 method: "POST",
@@ -75,13 +75,13 @@ export default class ReviewGame extends Component {
     formatDate = (string) => {
         let makingAString = string.toString();
         let newString = makingAString.substring(0, 10);
-        console.log(newString);
+        // console.log(newString);
         let formattingString = newString.split("-");
         let dateString = formattingString.splice(1, 1);
         formattingString.push(dateString);
-        console.log(formattingString);
+        // console.log(formattingString);
         let returnString = formattingString.reverse().join(" ");
-        console.log(returnString);
+        // console.log(returnString);
         return (
             <p> Release Date: {returnString}</p>
         )
@@ -89,7 +89,7 @@ export default class ReviewGame extends Component {
 
     render() {
         let formattedDate = this.formatDate(this.state.game.gameInfo.gameReleaseDate);
-        console.log(this.state.gameInfo);
+        // console.log(this.state.gameInfo);
         let reviewList = this.state.reviews.map((review) => {
             if (this.props.isLoggedIn) {
                 return (
@@ -98,6 +98,7 @@ export default class ReviewGame extends Component {
                         <p>{review.body}</p>
                         <p>Rating: {review.gameReviewNumber}/5</p>
                         <button onClick={this.deleteReview} value={review._id}>Delete</button>
+                        <button>Edit</button>
                     </div>
                 )
             } else {

@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-tooltip-lite": "^1.9.5"
   },
   "scripts": {
     "start": "PORT=3005 react-scripts start",
@@ -28,5 +31,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
   }
+=======
+  },
+  "proxy": "http://localhost:3004"
+>>>>>>> dde1d3c1cedd9a193969fa513801b1c93c206bc4
 }
