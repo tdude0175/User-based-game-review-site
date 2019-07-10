@@ -102,19 +102,19 @@ export default class UserPage extends Component {
                         </p>
                         <button>Submit</button>
                     </form>
-                    {/*<h2>Or</h2>*/}
-                    {/*<h1>Create an account</h1>*/}
-                    {/*<form onSubmit={this.createNewUser}>*/}
-                    {/*    <p>*/}
-                    {/*        <label htmlFor={"newusername"}>Username:</label>*/}
-                    {/*        <input name={"newusername"} id={"newusername"} type="text" maxLength={250}/>*/}
-                    {/*    </p>*/}
-                    {/*    <p>*/}
-                    {/*        <label htmlFor={"newpassword"}>Password:</label>*/}
-                    {/*        <input name={"newpassword"} id={"newpassword"} type="password" maxLength={500}/>*/}
-                    {/*    </p>*/}
-                    {/*    <button>Submit</button>*/}
-                    {/*</form>*/}
+                    <h2>Or</h2>
+                    <h1>Create an account</h1>
+                    <form onSubmit={this.createNewUser}>
+                        <p>
+                            <label htmlFor={"newusername"}>Username:</label>
+                            <input name={"newusername"} id={"newusername"} type="text" maxLength={250}/>
+                        </p>
+                        <p>
+                            <label htmlFor={"newpassword"}>Password:</label>
+                            <input name={"newpassword"} id={"newpassword"} type="password" maxLength={500}/>
+                        </p>
+                        <button>Submit</button>
+                    </form>
                 </div>
             )
         }
