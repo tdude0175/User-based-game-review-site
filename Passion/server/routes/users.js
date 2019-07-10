@@ -69,8 +69,8 @@ passport.use("register", new LocalStrategy
 
                 newUser.username = username;
                 newUser.password = createHash(password);
-                newUser.BackgroundImage = req.body.BackgroundImage;
-                newUser.profilePicture = req.body.profilePicture;
+                // newUser.BackgroundImage = req.body.BackgroundImage;
+                // newUser.profilePicture = req.body.profilePicture;
                 /*newUser.item to save = [req.body.item to save];*/
 
                 newUser.save((err) => {
