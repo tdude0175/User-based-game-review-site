@@ -90,7 +90,7 @@ passport.use("register", new LocalStrategy
 
 router.post("/addNewUser",
     passport.authenticate("register", {failureRedirect: "/users/creationFail"}), (req, res) => {
-        console.log("Made it through the strat");
+        // console.log("Made it through the strat");
         res.send("Creation Complete")
     }
 );
@@ -106,26 +106,26 @@ passport.use(new LocalStrategy(
     // username and password are passed by passport by default
     // done is the function to end the strategy (callback function).
     function (username, password, done) {
-        console.log("Local Strat");
+        // console.log("Local Strat");
         // find a user in Mongo with provided username. It returns an error if there is an error or the full entry for that user
         UserCollection.findOne({username: username}, function (err, user) {
             // If there is a MongoDB/Mongoose error, send the error
             if (err) {
-                console.log("1");
+                // console.log("1");
                 return done(err);
             }
             // If there is not a user in the database, it's a failure and send the message below
             if (!user) {
-                console.log("2");
+                // console.log("2");
                 return done(null, false, {message: 'Incorrect username.'});
             }
             // Check to see if the password typed into the form and the user's saved password is the same.
             if (!isValidPassword(user, password)) {
-                console.log("3");
+                // console.log("3");
                 return done(null, false, {message: 'Incorrect password.'});
             }
-            console.log("4");
-            console.log(user);
+            // console.log("4");
+            // console.log(user);
             // null is here because there is not an error
             // user is the results of the findOne function
             return done(null, user, {user: user.username,_id:user._id});
@@ -135,7 +135,7 @@ passport.use(new LocalStrategy(
 
 router.post("/login", passport.authenticate("local", {failureRedirect: "/users/verificationFailure"}), (req, res) => {
         req.session.username = req.body.username;
-        console.log("trying to set cookie data");
+        // console.log("trying to set cookie data");
         res.send(req.user._id);
     }
 );
@@ -145,7 +145,7 @@ router.get("/verificationFailure", (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-    console.log("logging out");
+    // console.log("logging out");
     res.session.username = null;
     res.send(null);
 });
@@ -161,7 +161,7 @@ router.delete("/removeUser",(req,res)=>
        }
        else
            {
-               console.log("Removed Account");
+               // console.log("Removed Account");
                res.send(results);
            }
    })

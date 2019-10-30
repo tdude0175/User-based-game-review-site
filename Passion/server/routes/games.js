@@ -12,7 +12,7 @@ router.get("/GameList", (req, res) => {
         }
         else
             {
-                console.log("Here are all games");
+                // console.log("Here are all games");
                 res.send(results);
             }
     })
@@ -45,7 +45,7 @@ router.post("/addGame", (req, res) => {
         if (errors) {
             res.send(errors);
         } else {
-            console.log("game created");
+            // console.log("game created");
             res.send("Game Saved");
         }
     })
@@ -63,7 +63,7 @@ router.put("/updateGame",(req,res)=>
             }
             else
                 {
-                    console.log("ArtWork Updated");
+                    // console.log("ArtWork Updated");
                     res.send(results);
                 }
         })
@@ -79,7 +79,7 @@ router.put("/updateGame",(req,res)=>
             }
             else
             {
-                console.log("Description Updated");
+                // console.log("Description Updated");
                 res.send(results);
             }
         })
@@ -92,12 +92,12 @@ router.put("/addGameReviewLink",(req,res)=>
     {
         if(errors)
         {
-            console.log("failed to save review to game archive");
+            // console.log("failed to save review to game archive");
             res.send(errors);
         }
         else
             {
-                console.log("Game reviews id saved to archive");
+                // console.log("Game reviews id saved to archive");
                 res.send("success!");
             }
     })
